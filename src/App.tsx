@@ -1,14 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function App() {
   const [btn, setBtn] = useState<number[]>(generateNewDie());
 
   function generateNewDie() {
     return new Array(10).fill(0).map(() => {
-      return Math.ceil(Math.random() * 6);
+      return { value: Math.ceil(Math.random() * 6), isHeld: false,id: nanoid()};
     });
   }
-
 
   return (
     <>
@@ -33,9 +33,12 @@ function App() {
             );
           })}
         </div>
-        <button onClick={()=>{
-          setBtn(generateNewDie())
-        }} className="bg-indigo-600 cursor-pointer font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl">
+        <button
+          onClick={() => {
+            setBtn(generateNewDie());
+          }}
+          className="bg-indigo-600 cursor-pointer font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl"
+        >
           Roll
         </button>
       </main>
