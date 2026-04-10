@@ -11,38 +11,38 @@ function App() {
         </div>
 
         <div className="grid grid-cols-5  gap-2 w-4/5  mx-auto mt-10">
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             1
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             2
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             3
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             4
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             5
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             6
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             7
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             8
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             9
           </button>
-          <button className="p-2 font-bold text-2xl border border-black w-30">
+          <button className="p-2 font-bold text-2xl border border-black max-w-30">
             10
           </button>
         </div>
-        <button className="bg-indigo-600 font-bold m-20 text-xl p-2 w-40 ">
+        <button className="bg-indigo-600 font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl">
           Roll
         </button>
       </main>
