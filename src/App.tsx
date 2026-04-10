@@ -1,5 +1,15 @@
+import { useEffect, useState } from "react";
+
 function App() {
-  const buttons: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const [btn, setBtn] = useState<number[]>(generateNewDie());
+
+  function generateNewDie() {
+    return new Array(10).fill(0).map(() => {
+      return Math.ceil(Math.random() * 6);
+    });
+  }
+
+
   return (
     <>
       <main className="bg-white max-w-3xl mx-auto flex justify-center flex-col items-center rounded-2xl mt-10">
@@ -12,17 +22,20 @@ function App() {
         </div>
 
         <div className="grid grid-cols-5  gap-2 w-4/5  mx-auto mt-10">
-          {buttons.map((btn) => {
+          {btn.map((btn, i) => {
             return (
-              <button className="p-2 font-bold text-2xl border shadow-sm shadow-gray-700 rounded-sm border-black max-w-30">
+              <button
+                key={i}
+                className="p-2 font-bold text-2xl border shadow-sm shadow-gray-700 rounded-sm border-black max-w-30"
+              >
                 {btn}
               </button>
             );
           })}
-
-          
         </div>
-        <button className="bg-indigo-600 cursor-pointer font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl">
+        <button onClick={()=>{
+          setBtn(generateNewDie())
+        }} className="bg-indigo-600 cursor-pointer font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl">
           Roll
         </button>
       </main>
