@@ -2,11 +2,20 @@ import { useState } from "react";
 import { nanoid } from "nanoid";
 
 function App() {
-  const [btn, setBtn] = useState<number[]>(generateNewDie());
+  interface Data {
+    data: number;
+    isHeld: boolean;
+    id: string;
+  }
+  const [btn, setBtn] = useState<Data[]>(generateNewDie());
 
   function generateNewDie() {
     return new Array(10).fill(0).map(() => {
-      return { value: Math.ceil(Math.random() * 6), isHeld: false,id: nanoid()};
+      return {
+        data: Math.ceil(Math.random() * 6),
+        isHeld: false,
+        id: nanoid(),
+      };
     });
   }
 
@@ -28,7 +37,7 @@ function App() {
                 key={i}
                 className="p-2 font-bold text-2xl border shadow-sm shadow-gray-700 rounded-sm border-black max-w-30"
               >
-                {btn}
+                {btn.data}
               </button>
             );
           })}
