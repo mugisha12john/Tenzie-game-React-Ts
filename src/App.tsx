@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import Die from "./Die";
 
 function App() {
   interface Data {
@@ -31,15 +32,8 @@ function App() {
         </div>
 
         <div className="grid grid-cols-5  gap-2 w-4/5  mx-auto mt-10">
-          {btn.map((btn, i) => {
-            return (
-              <button
-                key={i}
-                className="p-2 font-bold text-2xl border shadow-sm shadow-gray-700 rounded-sm border-black max-w-30"
-              >
-                {btn.data}
-              </button>
-            );
+          {btn.map((btn) => {
+            return <Die key={btn.id} data={btn.data} isHeld={btn.isHeld} />;
           })}
         </div>
         <button
