@@ -20,6 +20,17 @@ function App() {
     });
   }
 
+  function hold(id: string) {
+    const a = btn.map((item) => {
+      if (item.id === id) {
+        return { ...item, isHeld: !item.isHeld };
+      } else {
+        return item;
+      }
+    });
+    setBtn(a);
+  }
+
   return (
     <>
       <main className="bg-white max-w-3xl mx-auto flex justify-center flex-col items-center rounded-2xl mt-10">
@@ -33,7 +44,15 @@ function App() {
 
         <div className="grid grid-cols-5  gap-2 w-4/5  mx-auto mt-10">
           {btn.map((btn) => {
-            return <Die key={btn.id} data={btn.data} isHeld={btn.isHeld} />;
+            return (
+              <Die
+                key={btn.id}
+                id={btn.id}
+                data={btn.data}
+                isHeld={btn.isHeld}
+                hold={hold}
+              />
+            );
           })}
         </div>
         <button
