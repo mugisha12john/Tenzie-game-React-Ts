@@ -30,7 +30,22 @@ function App() {
     });
     setBtn(a);
   }
-
+  const gameWon =
+    btn.every((item) => item.isHeld) &&
+    btn.every((item) => item.data === btn[0].data);
+  function rollDice() {
+    setBtn(
+      btn.map((die) => {
+        {
+          if (die.isHeld) {
+            return die;
+          } else {
+            return { ...die, data: Math.ceil(Math.random() * 6) };
+          }
+        }
+      }),
+    );
+  }
   return (
     <>
       <main className="bg-white max-w-3xl mx-auto flex justify-center flex-col items-center rounded-2xl mt-10">
@@ -56,12 +71,10 @@ function App() {
           })}
         </div>
         <button
-          onClick={() => {
-            setBtn(generateNewDie());
-          }}
+          onClick={rollDice}
           className="bg-indigo-600 cursor-pointer font-bold m-20 text-xl p-2 w-40 text-white rounded-2xl"
         >
-          Roll
+          {gameWon ? "New Game" : "Roll"}
         </button>
       </main>
     </>
