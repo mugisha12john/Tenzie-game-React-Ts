@@ -34,20 +34,25 @@ function App() {
     btn.every((item) => item.isHeld) &&
     btn.every((item) => item.data === btn[0].data);
   function rollDice() {
-    setBtn(
-      btn.map((die) => {
-        {
-          if (die.isHeld) {
-            return die;
-          } else {
-            return { ...die, data: Math.ceil(Math.random() * 6) };
+    if (!gameWon) {
+      setBtn(
+        btn.map((die) => {
+          {
+            if (die.isHeld) {
+              return die;
+            } else {
+              return { ...die, data: Math.ceil(Math.random() * 6) };
+            }
           }
-        }
-      }),
-    );
+        }),
+      );
+    } else {
+      setBtn(generateNewDie());
+    }
   }
   return (
     <>
+      {gameWon && alert("You won")}
       <main className="bg-white max-w-3xl mx-auto flex justify-center flex-col items-center rounded-2xl mt-10">
         <div className="flex justify-center mt-2 flex-col items-center">
           <h1 className="text-3xl  font-bold mt-5">Tenzies</h1>
